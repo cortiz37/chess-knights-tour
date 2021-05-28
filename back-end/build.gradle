@@ -1,0 +1,50 @@
+buildscript {
+    ext {
+        springBootVersion = '2.3.4.RELEASE'
+        lombokVersion = "1.18.12"
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+group = 'back-end'
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+version = '1.0.0'
+
+bootJar {
+    archiveFileName = "${archiveBaseName.get()}.${archiveExtension.get()}"
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+
+    implementation("org.springdoc:springdoc-openapi-ui:1.5.0")
+    
+    compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+}
+
+[bootRun].each { runTask ->
+    configure(runTask) {
+        systemProperties System.properties
+    }
+}
+
+bootRun {
+    if (project.hasProperty('args')) {
+        args = (project.args.split("\\s+") as List)
+    }
+}

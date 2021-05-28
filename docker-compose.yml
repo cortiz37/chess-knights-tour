@@ -1,0 +1,22 @@
+version: "3"
+networks:
+  chess:
+    driver: bridge
+services:
+  front-end:
+    build: front-end
+    ports:
+      - "3000:3000"
+    environment:
+      - API_BASE_URL=http://back-end:9090/v1/chess
+    networks:
+      - chess
+  back-end:
+    build: back-end
+    ports:
+      - "9090:9090"
+    environment:
+      - JAVA_OPTS=
+      - APP_OPTS=
+    networks:
+      - chess
