@@ -74,12 +74,6 @@ public class Graph {
         }
     }
 
-    public void removePath(Node nodeA, Node nodeB) {
-        if (containsPath(nodeA, nodeB)) {
-            adjacency[nodes.indexOf(nodeA)][nodes.indexOf(nodeB)] = MAX;
-        }
-    }
-
     public boolean contains(Node node) {
         return nodes.contains(node);
     }
@@ -119,18 +113,6 @@ public class Graph {
                 }
             }
         }
-    }
-
-    public int minimumWeight(Node nodeA, Node nodeB) {
-        if (contains(nodeA) && contains(nodeB)) {
-            int pos1 = nodes.indexOf(nodeA);
-            int pos2 = nodes.indexOf(nodeB);
-            if (adjacencyAux[pos1][pos2] == MAX) {
-                return 0;
-            }
-            return adjacencyAux[pos1][pos2];
-        }
-        return 0;
     }
 
     public List<Node> minimumPath(Node nodeA, Node nodeB) {
