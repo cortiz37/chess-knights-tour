@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Graph {
 
-    private static final int MAX = 1000;
+    private static final int MAX = 1005 * 1005;
 
     private final List<Node> nodes;
     private int[][] adjacency;
