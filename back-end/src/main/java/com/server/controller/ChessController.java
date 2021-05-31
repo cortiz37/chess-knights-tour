@@ -68,8 +68,8 @@ public class ChessController {
         if (captureRequest.isSamePosition()) {
             return ResponseEntity.badRequest().body("Source and Target positions cannot be the same");
         }
-        if (captureRequest.getBoardSize() < 4) {
-            return ResponseEntity.badRequest().body("Minimum board size is 4");
+        if (captureRequest.getBoardSize() < 4 || captureRequest.getBoardSize() > 1000) {
+            return ResponseEntity.badRequest().body("Board size must be between 4 and 1000");
         }
 
         final List<Node> steps = chessService.capturePiece(captureRequest.getPieceType(), captureRequest.getSourceAsString(), captureRequest.getTargetAsString(), captureRequest.getBoardSize());
@@ -114,8 +114,8 @@ public class ChessController {
         })
     @PostMapping("/tour")
     public ResponseEntity tour(@RequestBody TourRequest tourRequest) {
-        if (tourRequest.getBoardSize() < 4) {
-            return ResponseEntity.badRequest().body("Minimum board size is 4");
+        if (tourRequest.getBoardSize() < 4 || tourRequest.getBoardSize() > 1000) {
+            return ResponseEntity.badRequest().body("Board size must be between 4 and 1000");
         }
 
         List<Node> steps = chessService.knightTour(tourRequest.getSourceAsString(), tourRequest.getBoardSize());
