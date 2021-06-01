@@ -1,0 +1,39 @@
+html, body, #root, .app-container {
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+    position: relative;
+}
+
+.app-content {
+    min-height: 100%;
+    overflow: auto;
+    position: relative;
+}
+
+.app-content .container-main {
+    padding-top: 80px;
+}
+
+.app-title {
+    float: left;
+}
+
+.app-title a {
+    text-decoration: none;
+    line-height: 64px;
+    font-size: 21px;
+    display: inline-block;
+}
+
+.app-title a:hover {
+    text-decoration: none;
+}
+
+.app-header {
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 2px 8px #f0f1f2;
+    z-index: 10;
+    padding: 0;
+}
