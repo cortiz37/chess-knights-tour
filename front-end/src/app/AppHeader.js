@@ -11,7 +11,7 @@ class AppHeader extends Component {
             <Header className="app-header">
                 <div className="container">
                     <div className="app-title">
-                        <Link to="/">Customer App</Link>
+                        <Link to="/">Chess</Link>
                     </div>
                 </div>
             </Header>
