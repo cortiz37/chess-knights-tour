@@ -37,3 +37,13 @@ html, body, #root, .app-container {
     z-index: 10;
     padding: 0;
 }
+
+.top-margin {
+    margin-top: 10px;
+}
+
+.scrollable-container {
+    width: 100%;
+    max-height: 300px;
+    overflow: auto;
+}
